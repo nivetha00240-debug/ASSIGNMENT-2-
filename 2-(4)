@@ -1,0 +1,38 @@
+class TicketCounter {
+    private int tickets = 1;
+
+    public synchronized void bookTicket(String name) {
+        if (tickets > 0) {
+            System.out.println(name + " booked the ticket.");
+            tickets--;
+        } else {
+            System.out.println(name + " could NOT book. No tickets left.");
+        }
+    }
+}
+
+class Customer extends Thread {
+    TicketCounter counter;
+    String name;
+
+    Customer(TicketCounter c, String n) {
+        counter = c;
+        name = n;
+    }
+
+    public void run() {
+        counter.bookTicket(name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        TicketCounter counter = new TicketCounter();
+
+        Customer c1 = new Customer(counter, "Customer 1");
+        Customer c2 = new Customer(counter, "Customer 2");
+
+        c1.start();
+        c2.start();
+    }
+}
