@@ -1,0 +1,13 @@
+class InvalidGradeException(Exception):
+    pass
+
+def enter_marks():
+    m = int(input("Enter marks: "))
+    if m > 100:
+        raise InvalidGradeException("Marks beyond 100 not allowed")
+    print("Marks accepted:", m)
+
+try:
+    enter_marks()
+except InvalidGradeException as e:
+    print(e)
