@@ -1,0 +1,13 @@
+public class SentenceAnalysis {
+    public static void main(String[] args) {
+        String s = "Java Programming is FUN and Powerful!";
+
+        System.out.println("Characters: " + s.length());
+        System.out.println("Lowercase: " + s.toLowerCase());
+        System.out.println("Spaces replaced: " + s.replace(" ", "_"));
+        System.out.println("Contains 'Java'? " + s.contains("Java"));
+
+        String fun = s.substring(s.indexOf("FUN"), s.indexOf("FUN") + 3).toLowerCase();
+        System.out.println("FUN in lowercase: " + fun);
+    }
+}
