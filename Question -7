@@ -1,0 +1,15 @@
+class GenericPrin
+    public static <T> void printArray(T[] arr) {
+        for (T element : arr) {
+            System.out.println(element);
+        }
+    }
+
+    public static void main(String[] args) {
+        String[] s = { "Java", "Python", "C++" };
+        Integer[] n = { 1, 2, 3, 4 };
+
+        printArray(s);
+        printArray(n);
+    }
+}
