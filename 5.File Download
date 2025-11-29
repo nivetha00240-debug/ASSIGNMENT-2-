@@ -8,7 +8,7 @@ class DownloadPart extends Thread {
     public void run() {
         try {
             System.out.println(partName + " downloading...");
-            Thread.sleep(1000);      // simulate download time
+            Thread.sleep(1000);      
             System.out.println(partName + " completed.");
         } catch (Exception e) {
             System.out.println(e);
