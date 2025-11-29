@@ -1,0 +1,31 @@
+
+class InvalidGradeException extends Exception {
+    public InvalidGradeException(String message) {
+        super(message);
+    }
+}
+
+import java.util.Scanner;
+
+public class MarksTest {
+
+    static void enterMarks() throws InvalidGradeException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter marks: ");
+        int m = sc.nextInt();
+
+        if (m > 100) {
+            throw new InvalidGradeException("Marks beyond 100 not allowed");
+        }
+
+        System.out.println("Marks accepted: " + m);
+    }
+
+    public static void main(String[] args) {
+        try {
+            enterMarks();
+        } catch (InvalidGradeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
